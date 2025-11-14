@@ -27,6 +27,7 @@ func InitFirebase(){
 	var err error
 	App , err = firebase.NewApp(context.Background() , nil , opt)
 
+	
 	if err!=nil{
 		log.Fatal("error initialising firebase admin sdk " ,err)
 	}else{

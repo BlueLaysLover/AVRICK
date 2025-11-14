@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Avrick Auth</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Avrick Login Test</h1>
+
+      <input type="email" id="email" placeholder="Email" />
+      <input type="password" id="password" placeholder="Password" />
+
+      <div class="btn-group">
+        <button onclick="signup()">Sign Up</button>
+        <button onclick="login()">Login</button>
+        <button onclick="googleLogin()">Google Login</button>
+        <button onclick="logout()">Logout</button>
+      </div>
+
+      <p id="error-message" style="color: red"></p>
+    </div>
+
+    <script type="module" src="auth.js"></script>
+  </body>
+</html>
