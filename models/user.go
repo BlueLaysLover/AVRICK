@@ -13,11 +13,11 @@ type User struct{
 	Email string				`bson:"email" json:"email"`	 
 	Age int 				`bson:"age" json:"age"`
 	Aim  string	`bson:"aim" json:"aim"`
-	LoginDate	time.Time  `bson:"date" json:"date"`
+	LoginDate	time.Time  `bson:"logindate" json:"logindate"`
 	Deadline 	time.Time 	`bson:"deadline" json:"deadline"`
 
 	TotalHours 	int		`bson:"totalhours" json:"totalhours"`
-	BeatenAvrick int 	`bson:"streak" json:"streak"`
+	BeatenAvrick int 	`bson:"beatenavrick" json:"beatenavrick"`
 	Streak 		int `bson:"streak" json:"streak"`
 			
 }

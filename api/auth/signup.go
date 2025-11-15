@@ -2,12 +2,12 @@ package api
 
 import (
 	"encoding/json"
+	"log"
 	"net/http"
 
 	data "avrick.com/database"
 	"avrick.com/models"
 	"go.mongodb.org/mongo-driver/bson"
-	"go.mongodb.org/mongo-driver/bson/primitive"
 )
 
 
@@ -26,7 +26,6 @@ func Signup(w http.ResponseWriter, r *http.Request) {
 
 
 	newuser:= models.User{
-		ID: uid.(primitive.ObjectID),
 		Email: email.(string),
 
 	}
@@ -35,12 +34,12 @@ func Signup(w http.ResponseWriter, r *http.Request) {
 	// in this line user is added in the db
 	collection :=data.Client.Database("avrick").Collection("users")
 
-	
 
 	_ , err:= collection.InsertOne(r.Context() , newuser)
 
 	if err != nil {
 		http.Error(w, "Failed to create user", http.StatusInternalServerError)
+		log.Println("error adding document "  , err)
 		return
 	}
 

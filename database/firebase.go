@@ -22,7 +22,7 @@ func InitFirebase(){
         return
     }
 // will add the service file later
-	opt := option.WithCredentialsFile("../serviceaccount.json")
+	opt := option.WithCredentialsFile("serviceaccount.json")
 
 	var err error
 	App , err = firebase.NewApp(context.Background() , nil , opt)
