@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - Avrick</title>
+    <link rel="stylesheet" href="dashboard-style.css" />
+  </head>
+  <body>
+    <!-- Background gradient -->
+    <div class="gradient-bg"></div>
+
+    <!-- Navigation header -->
+    <nav class="navbar">
+      <div class="nav-content">
+        <h2 class="nav-logo">Avrick</h2>
+        <div class="nav-links">
+          <a href="/dashboard.html" class="nav-link active">Home</a>
+          <a href="/stats.html" class="nav-link">Stats</a>
+          <button onclick="logout()" class="btn-logout">Logout</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main dashboard container -->
+    <div class="dashboard-container">
+
+      <!-- Welcome message -->
+      <div class="welcome-section">
+        <h1 class="welcome-title" id="welcomeMessage">Welcome back</h1>
+        <p class="welcome-subtitle">Stay focused. Every minute counts.</p>
+      </div>
+
+      <!-- Main timer card -->
+      <div class="timer-card" id="timerCard">
+
+        <!-- Timer display -->
+        <div class="timer-display">
+          <div class="time-text" id="timerDisplay">00:00:00</div>
+          <p class="timer-label" id="timerLabel">Ready to focus?</p>
+        </div>
+
+        <!-- Session controls -->
+        <div class="controls">
+          <!-- Start button (visible when no active session) -->
+          <button class="btn-start" id="startBtn" onclick="startSession()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+            Start Session
+          </button>
+
+          <!-- End button (visible during active session) -->
+          <button class="btn-end hidden" id="endBtn" onclick="endSession()">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="6" y="6" width="12" height="12"></rect>
+            </svg>
+            End Session
+          </button>
+        </div>
+
+        <!-- Session notes input -->
+        <div class="notes-section">
+          <label for="sessionNotes" class="notes-label">Session notes (optional)</label>
+          <textarea
+            id="sessionNotes"
+            class="notes-input"
+            placeholder="What are you working on today?"
+            rows="3"
+          ></textarea>
+        </div>
+      </div>
+
+      <!-- Today's stats card -->
+      <div class="stats-summary">
+        <div class="stat-card">
+          <div class="stat-icon">📚</div>
+          <div class="stat-content">
+            <p class="stat-value" id="todayMinutes">0</p>
+            <p class="stat-label">Minutes Today</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">🔥</div>
+          <div class="stat-content">
+            <p class="stat-value" id="streakDays">0</p>
+            <p class="stat-label">Day Streak</p>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">⏱️</div>
+          <div class="stat-content">
+            <p class="stat-value" id="totalHours">0</p>
+            <p class="stat-label">Total Hours</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick link to stats page -->
+      <div class="view-stats-link">
+        <a href="/stats.html" class="link-button">
+          View Detailed Analytics
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Firebase auth + dashboard logic -->
+    <script type="module" src="dashboard.js"></script>
+  </body>
+</html>

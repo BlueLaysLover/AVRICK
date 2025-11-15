@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stats - Avrick</title>
+    <link rel="stylesheet" href="stats-style.css" />
+    <!-- Chart.js library for visualizations -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  </head>
+  <body>
+    <!-- Background gradient -->
+    <div class="gradient-bg"></div>
+
+    <!-- Navigation header -->
+    <nav class="navbar">
+      <div class="nav-content">
+        <h2 class="nav-logo">Avrick</h2>
+        <div class="nav-links">
+          <a href="/dashboard.html" class="nav-link">Home</a>
+          <a href="/stats.html" class="nav-link active">Stats</a>
+          <button onclick="logout()" class="btn-logout">Logout</button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main stats container -->
+    <div class="stats-container">
+
+      <!-- Page header -->
+      <div class="page-header">
+        <h1 class="page-title">Your Progress</h1>
+        <p class="page-subtitle">Track your journey to focused productivity</p>
+      </div>
+
+      <!-- Summary cards -->
+      <div class="summary-grid">
+        <div class="summary-card">
+          <div class="summary-icon">📅</div>
+          <div class="summary-content">
+            <p class="summary-value" id="todayMinutes">0</p>
+            <p class="summary-label">Minutes Today</p>
+          </div>
+        </div>
+
+        <div class="summary-card">
+          <div class="summary-icon">📊</div>
+          <div class="summary-content">
+            <p class="summary-value" id="weekTotal">0</p>
+            <p class="summary-label">This Week</p>
+          </div>
+        </div>
+
+        <div class="summary-card">
+          <div class="summary-icon">🔥</div>
+          <div class="summary-content">
+            <p class="summary-value" id="streakCount">0</p>
+            <p class="summary-label">Day Streak</p>
+          </div>
+        </div>
+
+        <div class="summary-card">
+          <div class="summary-icon">⏱️</div>
+          <div class="summary-content">
+            <p class="summary-value" id="totalHours">0h</p>
+            <p class="summary-label">Total Time</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Weekly bar chart -->
+      <div class="chart-card">
+        <h3 class="chart-title">Last 7 Days</h3>
+        <p class="chart-subtitle">Daily study minutes</p>
+        <div class="chart-wrapper">
+          <canvas id="weeklyChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Monthly line chart -->
+      <div class="chart-card">
+        <h3 class="chart-title">Last 30 Days</h3>
+        <p class="chart-subtitle">Study time trend</p>
+        <div class="chart-wrapper">
+          <canvas id="monthlyChart"></canvas>
+        </div>
+      </div>
+
+      <!-- 365-day heatmap (GitHub-style) -->
+      <div class="chart-card">
+        <h3 class="chart-title">Year Overview</h3>
+        <p class="chart-subtitle">365-day activity heatmap</p>
+        <div class="heatmap-container" id="heatmapContainer">
+          <!-- Heatmap will be generated dynamically -->
+          <div class="heatmap-loading">Loading your year overview...</div>
+        </div>
+        <div class="heatmap-legend">
+          <span class="legend-label">Less</span>
+          <div class="legend-box level-0"></div>
+          <div class="legend-box level-1"></div>
+          <div class="legend-box level-2"></div>
+          <div class="legend-box level-3"></div>
+          <div class="legend-box level-4"></div>
+          <span class="legend-label">More</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Firebase auth + stats logic -->
+    <script type="module" src="stats.js"></script>
+  </body>
+</html>

@@ -17,18 +17,17 @@ func main() {
 
 
 	http.Handle("/api/signup" , middleware.Middleware(http.HandlerFunc(api.Signup)))
-	
+
 
 	http.Handle("/api/session/start" , middleware.Middleware(http.HandlerFunc(api.StartStudySession)))
-	
+
 	http.Handle("/api/session/end" , middleware.Middleware(http.HandlerFunc(api.EndStudySession)))
 
+	http.Handle("/api/stats/daily" , middleware.Middleware(http.HandlerFunc(api.GetDailyStats)))
 
-
+	// Serve static files from frontend/public directory
 	fs := http.FileServer(http.Dir("frontend/public"))
-	http.Handle("/home/", http.StripPrefix("/home", fs))
-
-
+	http.Handle("/", fs)
 
 	http.ListenAndServe(":8000", nil)
 
