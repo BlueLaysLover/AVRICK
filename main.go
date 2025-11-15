@@ -3,7 +3,7 @@ package main
 import (
 	"net/http"
 
-	api "avrick.com/api/auth"
+	api "avrick.com/api"
 	data "avrick.com/database"
 	middleware "avrick.com/middlewre"
 )
@@ -16,11 +16,12 @@ func main() {
 
 
 
-	http.Handle("/api/signup" , middleware.FirebaseAuthMiddleware(http.HandlerFunc(api.Signup)))
+	http.Handle("/api/signup" , middleware.Middleware(http.HandlerFunc(api.Signup)))
 	
 
+	http.Handle("/api/session/start" , middleware.Middleware(http.HandlerFunc(api.StartStudySession)))
 	
-
+	http.Handle("/api/session/end" , middleware.Middleware(http.HandlerFunc(api.EndStudySession)))
 
 
 

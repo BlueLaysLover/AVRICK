@@ -9,7 +9,7 @@ import (
 	data "avrick.com/database"
 )
 
-func FirebaseAuthMiddleware(next http.Handler) http.Handler {
+func Middleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 
 		// Get auth header
